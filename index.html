@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookatMe</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+
+
+
+
+<body>
+
+    <nav class="navbar navbar-light bg-nav rounded-bottom">
+        <a class="navbar-brand font-weight-bold "><img src="img/book-icon-32-191918.png" width="30" height="30"
+                class="d-inline-block align-top mr-1" alt="" loading="lazy">LookatMe</a>
+        <div class="d-flex ">
+            <!-- <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0 " type="submit">Search</button>
+            </form> -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mr-1 ml-2 " data-toggle="modal" data-target="#staticBackdrop"
+                id="sign-in-btn">
+                Sign in
+            </button>
+            <button type="button" class="btn btn-primary mr-1 ml-2 d-none" id="logout-button" onclick="logout()">
+                Alex, Log Out!
+            </button>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Sign in or Sign up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Hi! Wanne log in?</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control"
+                                placeholder="Quick, crappy PC, must inform the world!" aria-label="Recipient's username"
+                                aria-describedby="button-addon2" id="login-input">
+
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary btn-sinup" type="button" id="login-input"
+                                    onclick="loaduser()" data-dismiss="modal">Log
+                                    in</button>
+                            </div>
+                        </div>
+                        <p>New here? No Problem, registry is free!</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Username"
+                                aria-label="Recipient's username" aria-describedby="button-addon2" id="registry-input">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary btn-sinup" type="button" onclick="savename()"
+                                    data-dismiss="modal">Registry</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="m-3">
+        <div class="input-group mb-3 d-none" id="post-input">
+            <input type="text" class="form-control" placeholder="It´s important! They have to know that!"
+                aria-label="Recipient's username" aria-describedby="button-addon2" id="post">
+            <div class="input-group-append">
+                <button class="btn bg-show" type="button" onclick="post()">showthem</button>
+            </div>
+        </div>
+        <div class="alert bg-log-in-alert text-center h4" role="alert" id="alert-sign-in">
+            They must know my name! So I will sign in!
+        </div>
+    </div>
+
+
+
+    <div id="firstpost"></div>
+
+    <!-- <div class="card text-center m-3">
+        <div class="card-header text-left bg-p-hd-fo">
+            SEE! This is important for you:
+        </div>
+        <div class="card-body bg-text-post">
+            <p class="card-text ">I live in Singapore and I love it.</p>
+
+        </div>
+        <div class="card-footer text-muted bg-p-hd-fo">
+            Alex 2 days ago
+        </div>
+    </div> -->
+
+    <footer class=" fixed-bottom pr-3 pl-3 pb-2 pt-4 bg-footer rounded-top text-white">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2021 derKanzlerin, Inc. · <a href="#" data-toggle="modal" data-target="#PrivacyModal">Privacy</a> · <a
+                href="#" data-toggle="modal" data-target="#TermsModal">Terms</a></p>
+
+    </footer>
+
+    <div class="modal fade" id="PrivacyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Privacy</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Funny! No, there isn´t!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="TermsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Terms</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Log in odr Sign up before posting!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

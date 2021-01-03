@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    background: #265563;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.bg-nav {
+    background-color: #35b1d2;
+}
+
+.btn-sinup {
+    width: 150px;
+}
+
+.bg-show {
+    background-color: #35D1A2;
+}
+
+.bg-footer {
+    background-color: #1e3942;
+}
+
+.bg-text-post {
+    background-color: #e3f2f7;
+}
+.bg-p-hd-fo {
+    background-color: #c7e5f0;
+}
+
+.bg-log-in-alert{
+    background-color: #bf7656;
+    
+}
+
+.z-index{
+    z-index: 11 !important;
+}
